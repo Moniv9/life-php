@@ -3,6 +3,7 @@ $(document).ready(function() {
   var Search_Item, Search_View, obj;
   Search_Item = Backbone.Model.extend({
     url: 'index.php/welcome/search',
+     
     initialize: function() {}
   });
   Search_View = Backbone.View.extend({
@@ -24,18 +25,19 @@ $(document).ready(function() {
     dosearch: function(event) {
       var id, items, str;
       id = document.getElementById('query');
-     
-      items = new Search_Item({
+       
+      var items = new Search_Item({
         search_item: id.value
       });
       str = '';
       
-      return items.save(items, {
-        success: function(data) {
-          $.each(data.toJSON(), function(i, val) {
+      return items.save(null, {
+        success: function(data,response) { 
+          $.each(data.toJSON(), function(i, val) { 
             if (i !== 'search_item') {
               str = str + val.title + "<br/>";
               str = str + val.url + "<br/>";
+              
               return str = str + val.tags + "<br/><br/>";
             }
           });

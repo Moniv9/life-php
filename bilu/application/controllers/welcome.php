@@ -38,14 +38,15 @@ class Welcome extends CI_Controller {
 	
 	public function search()
 	{
-		$search_item=$this->input->post('search_item');
+		 $data=json_decode(file_get_contents('php://input'));
 		
-		$query=$this->marks_model->search_tags($search_item);
-		echo json_encode($query);
+		 $query=$this->marks_model->search_tags($data->search_item);
+		 echo json_encode($query);
+    
+    }	
 	
-	    
-		
-	}
+	
+	
 }
 
 /* End of file welcome.php */
