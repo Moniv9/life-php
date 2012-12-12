@@ -12,8 +12,11 @@
 <body>
 
 <form action="index.php/welcome/save" method="post">
-<input type-"text" name="title" />
+<strong>Title</strong>&nbsp;
+<input type="text" name="title" />
+<strong>URL</strong>&nbsp;
 <input type="text" name="url" />
+<strong>Tags</strong>&nbsp;
 <input type="text" name="tags"/>
 <input type="submit" value="save" />
 
